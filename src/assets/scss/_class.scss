@@ -1,0 +1,16 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.hide-content {
+  @media (max-width: 630px) {
+    display: none !important;
+  }
+}
