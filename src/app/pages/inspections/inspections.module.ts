@@ -4,21 +4,21 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
-import { InspectionRoutingModule } from './inspection-routing.module';
-import { InspectionComponent } from './inspection.component';
+import { InspectionsRoutingModule } from './inspections-routing.module';
+import { InspectionsComponent } from './inspections.component';
 import { InspectionDetailsComponent } from './inspection-details/inspection-details.component';
 import { SharedModule } from '@shared/shared.module';
 import { ListTableModule } from '@shared/components/list-table/list-table.module';
 import { RequestStateModule } from '@shared/components/request-state/request-state.module';
-import { InspectionService } from './shared/services/inspection.service';
+import { InspectionsService } from './shared/services/inspections.service';
 
 @NgModule({
   declarations: [
-    InspectionComponent,
+    InspectionsComponent,
     InspectionDetailsComponent
   ],
   imports: [
-    InspectionRoutingModule,
+    InspectionsRoutingModule,
     NgxMaskDirective,
     ListTableModule,
     MatOptionModule,
@@ -28,7 +28,7 @@ import { InspectionService } from './shared/services/inspection.service';
   ],
   providers: [
     provideNgxMask(),
-    InspectionService
+    InspectionsService
   ]
 })
-export class InspectionModule { }
+export class InspectionsModule { }

@@ -15,7 +15,7 @@ import { SessionStorage } from '@shared/enums/session-storage.enum';
 })
 export class AuthService {
 
-  public userName: string = '';
+  public userName: string;
 
   constructor(
     private http: HttpService,

@@ -45,7 +45,7 @@
 
     <mat-select formControlName="reports" multiple [compareWith]="compareReports">
       <mat-option *ngFor="let report of (reports$ | async)" [value]="report">
-        {{ report?.status }}
+        {{ report?.observation }}
       </mat-option>
     </mat-select>
 

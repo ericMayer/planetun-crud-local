@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { InspectionComponent } from './inspection.component';
+import { InspectionsComponent } from './inspections.component';
 import { InspectionDetailsComponent } from './inspection-details/inspection-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: InspectionComponent
+    component: InspectionsComponent
   },
   {
     path: 'criar',
@@ -25,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class InspectionRoutingModule { }
+export class InspectionsRoutingModule { }

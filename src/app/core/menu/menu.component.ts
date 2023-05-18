@@ -21,11 +21,13 @@ export class MenuComponent {
   public menu: Menu[] = [
     {
       text: 'Inspeções',
-      route: 'inspecao'
+      route: 'inspecoes',
+      icon: 'frame_inspect'
     },
     {
-      text: 'Criar inspeção',
-      route: 'inspecao/criar'
+      text: 'Relatórios',
+      route: 'relatorios',
+      icon: 'inventory'
     }
   ];
   public showMessageNoResponsive: boolean;

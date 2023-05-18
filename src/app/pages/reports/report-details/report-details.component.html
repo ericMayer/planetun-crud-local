@@ -1,0 +1,26 @@
+<form class="form" [formGroup]="formReport">
+
+  <mat-form-field appearance="outline">
+    <mat-label class="small-font">Status</mat-label>
+
+    <input type="text" matInput placeholder="Digite o status do relatório" formControlName="status" mask="0*">
+
+    <mat-error *ngIf=" showErrorByField('status', 'required' )">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label class="small-font">Observação</mat-label>
+
+    <textarea type="text" matInput placeholder="Digite uma observação sobre o relatório"
+      formControlName="observation"></textarea>
+
+    <mat-error *ngIf="showErrorByField('observation', 'required')">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+
+  <button class="confirm text-font" mat-raised-button color="primary" [disabled]="formReport?.invalid"
+    (click)="submitReport()">
+    {{ getTextButtonConfirm() }}
+  </button>
+
+</form>

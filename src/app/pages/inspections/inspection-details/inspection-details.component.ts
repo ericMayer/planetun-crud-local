@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
 import { Report } from '@shared/interfaces/report.interface';
-import { InspectionService } from '@pages/inspection/shared/services/inspection.service';
-import { ReportService } from '@shared/services/report.service';
-import { Inspection } from '@pages/inspection/shared/interfaces/inspection.interface';
-import { Router } from '@angular/router';
+import { InspectionsService } from '@pages/inspections/shared/services/inspections.service';
+import { ReportsService } from '@shared/services/reports.service';
+import { Inspection } from '@pages/inspections/shared/interfaces/inspection.interface';
 import { openSnackBarAlert } from '@shared/utils/alert.utils';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-inspection-details',
@@ -21,12 +21,12 @@ export class InspectionDetailsComponent implements OnInit {
   @Input() public idInspection: string;
 
   public formInspection: FormGroup;
-  public reports$: Observable<Report[]> = this.reportService.getInspections();
+  public reports$: Observable<Report[]> = this.reportsService.getReports();
 
   constructor(
     private fb: FormBuilder,
-    private inspectionService: InspectionService,
-    private reportService: ReportService,
+    private inspectionsService: InspectionsService,
+    private reportsService: ReportsService,
     private router: Router,
     private snackBar: MatSnackBar
   ) {
@@ -52,13 +52,12 @@ export class InspectionDetailsComponent implements OnInit {
     reportOne?.id === reportTwo?.id;
 
   private getInspectionById(): void {
-    if (this.idInspection) {
-      this.inspectionService.getInspectionById(this.idInspection)
+    if (this.idInspection)
+      this.inspectionsService.getInspectionById(this.idInspection)
         .subscribe({
           next: (inspection: Inspection) => this.formInspection.patchValue({ ...inspection }),
           error: () => this.showMessage('Não foi possível carregar a inspeção 😢, por favor tente novamente.')
         });
-    }
   }
 
   public showErrorByField = (field: string, error: string): boolean =>
@@ -75,11 +74,11 @@ export class InspectionDetailsComponent implements OnInit {
       isSuccess
     });
 
-    if (isSuccess) this.router.navigateByUrl('inspecao');
+    if (isSuccess) this.router.navigateByUrl('inspecoes');
   }
 
   private updateInspection(): void {
-    this.inspectionService.updateInspection({ ...this.formInspection.value, id: this.idInspection })
+    this.inspectionsService.updateInspection({ ...this.formInspection.value, id: this.idInspection })
       .subscribe({
         next: () => this.showMessage('Inspeção atualizada com sucesso 🚀!', true),
         error: () => this.showMessage('Não foi possível atualizar a inspeção 😢, por favor tente novamente.')
@@ -87,7 +86,7 @@ export class InspectionDetailsComponent implements OnInit {
   }
 
   private createInspection(): void {
-    this.inspectionService.createInspection(this.formInspection?.value)
+    this.inspectionsService.createInspection(this.formInspection?.value)
       .subscribe({
         next: () => this.showMessage('Inspeção cadastrada com sucesso 🚀!', true),
         error: () => this.showMessage('Não foi possível cadastrar a inspeção 😢, por favor tente novamente.')

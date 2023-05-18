@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { HttpService } from '@shared/services/http.service';
-import { Inspection } from '@pages/inspection/shared/interfaces/inspection.interface';
+import { Inspection } from '@pages/inspections/shared/interfaces/inspection.interface';
 import { environment } from '@environments/environment';
 
 @Injectable()
-export class InspectionService {
+export class InspectionsService {
 
   constructor(private http: HttpService) { }
 
