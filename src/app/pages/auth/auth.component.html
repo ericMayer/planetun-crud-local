@@ -1,6 +1,6 @@
-<main class="login flex-justify-center">
+<main class="container flex-justify-center">
 
-  <mat-card class="card hide-content">
+  <mat-card class="card hide-mobile">
     <mat-card-content>
       <form class="form" [formGroup]="formUserCredentials">
 
@@ -21,8 +21,8 @@
           <mat-error *ngIf="showErrorByField('password', 'required')">A senha é obrigatória.</mat-error>
         </mat-form-field>
 
-        <button type="submit" class="small-font button-login" [disabled]="formUserCredentials?.invalid"
-          mat-raised-button color="primary" (click)="login()">
+        <button type="submit" class="small-font confirm" [disabled]="formUserCredentials?.invalid" mat-raised-button
+          color="primary" (click)="login()">
           Entrar
         </button>
       </form>

@@ -1,0 +1,62 @@
+<form class="form" [formGroup]="formInspection">
+
+  <mat-form-field appearance="outline">
+    <mat-label class="small-font">ID da empresa</mat-label>
+
+    <input type="text" matInput placeholder="Digite o ID da empresa" formControlName="companyId">
+
+    <mat-error *ngIf="showErrorByField('companyId', 'required')">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label class="small-font">Código do corretor</mat-label>
+
+    <input type="text" matInput placeholder="Digite o código do corretor" formControlName="brokerCode">
+
+    <mat-error *ngIf="showErrorByField('brokerCode', 'required')">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label class="small-font">Código do produto</mat-label>
+
+    <input type="text" matInput placeholder="Digite o código do produto" formControlName="productCode">
+
+    <mat-error *ngIf="showErrorByField('productCode', 'required')">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label class="small-font">Nome do produto</mat-label>
+
+    <input type="text" matInput placeholder="Digite o nome do produto" formControlName="productName">
+
+    <mat-error *ngIf="showErrorByField('productName', 'required')">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label class="small-font">Número de inspeção</mat-label>
+
+    <input type="text" matInput placeholder="Digite o número de inspeção" formControlName="inspectionNumber" mask="0*">
+
+    <mat-error *ngIf=" showErrorByField('inspectionNumber', 'required' )">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Relatórios</mat-label>
+
+    <mat-select formControlName="reports" multiple [compareWith]="compareReports">
+      <mat-option *ngFor="let report of (reports$ | async)" [value]="report">
+        {{ report?.status }}
+      </mat-option>
+    </mat-select>
+
+    <mat-error *ngIf=" showErrorByField('reports', 'required' )">Campo obrigatório.</mat-error>
+
+    <mat-error *ngIf="showErrorByField('reports', 'minlength')">Selecione no mínimo 2 relatórios.</mat-error>
+  </mat-form-field>
+
+  <button class="confirm text-font" mat-raised-button color="primary" [disabled]="formInspection?.invalid"
+    (click)="submitInspection()">
+    {{ getTextButtonConfirm() }}
+  </button>
+
+</form>

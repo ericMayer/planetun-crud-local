@@ -1,0 +1,4 @@
+<app-list-table textButton="Criar inspeção" [data]="inspections" [columns]="columns" (create)="goToInspectionDetails()"
+  (edit)="goToInspectionDetails($event?.id)"></app-list-table>
+
+<app-request-state [requestState]="requestState"></app-request-state>

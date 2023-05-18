@@ -1,9 +1,9 @@
-@import "../../../assets/scss/mixins";
-
-.login {
-  @include size(100%, 100%);
-  background: var(--background-color);
-  padding: 32px;
+.container {
+  .hide-mobile {
+    @media (max-width: 630px) {
+      display: none !important;
+    }
+  }
 
   .card {
     width: 400px;
@@ -16,10 +16,8 @@
     gap: 8px;
   }
 
-  .button-login {
-    height: 40px;
+  .confirm {
     width: 130px;
-    padding: 8px;
     justify-self: flex-end;
   }
 }
