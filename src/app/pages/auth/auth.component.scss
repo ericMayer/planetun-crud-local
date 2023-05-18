@@ -1,0 +1,23 @@
+.container {
+  .hide-mobile {
+    @media (max-width: 630px) {
+      display: none !important;
+    }
+  }
+
+  .card {
+    width: 400px;
+    height: 350px;
+    border-radius: 8px;
+  }
+
+  .form {
+    display: grid;
+    gap: 8px;
+  }
+
+  .confirm {
+    width: 130px;
+    justify-self: flex-end;
+  }
+}
