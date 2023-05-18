@@ -1,0 +1,35 @@
+.list-table {
+  display: grid;
+  gap: 32px;
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    color: var(--secondary-color);
+
+    .material-symbols-outlined {
+      cursor: pointer;
+    }
+  }
+
+  .text {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+
+  .flex-end {
+    justify-self: flex-end;
+  }
+
+  .confirm ::ng-deep .mdc-button__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+}

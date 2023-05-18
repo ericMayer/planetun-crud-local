@@ -1,3 +1,4 @@
 export interface Environment {
-  auth: string;
+  data: string;
+  auth: string
 }

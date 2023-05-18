@@ -1,6 +1,6 @@
 # Inicie Educação Pokédex
 
-Projeto desenvolvido para o teste de **Front-end da [Grupo Planetun](https://www.grupoplanetun.com.br/)**, onde foi criado um sistema com três módulos **Auth, Inspections e Reports**, todas as requisições estão locais em um arquivo **JSON**. Para maiores informações sobre o projeto proposto, por favor consultar o arquivo [Teste (Processo Seletivo) - Desenvolvedor Front-End Sr](<./src/assets/files/Teste%20(Processo%20Seletivo)%20-%20Desenvolvedor%20Front-End%20Sr.pdf>).
+Projeto desenvolvido para o teste de **Front-end da [Grupo Planetun](https://www.grupoplanetun.com.br/)**, onde foi criado um sistema com três módulos **Auth, Inspections e Reports**, está sendo utilizado o [mocky.io](https://designer.mocky.io/) e o [mockAPI](https://mockapi.io/) como API. Para maiores informações sobre o projeto proposto, por favor consultar o arquivo [Teste (Processo Seletivo) - Desenvolvedor Front-End Sr](<./src/assets/files/Teste%20(Processo%20Seletivo)%20-%20Desenvolvedor%20Front-End%20Sr.pdf>).
 
 Projeto foi desenvolvido com versão **16 do Angular e do Material**, seguindo boas práticas do [Angular coding style guide](https://angular.io/guide/styleguide) e da comunidade, foi utilizado [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification) para os commits do projeto, também foi utilizado **programação reativa** [RXJS](https://rxjs.dev/) e está configurado o [Eslint](https://eslint.org/) para validação do código e o [Prettier](https://prettier.io/) para formatação.
 
