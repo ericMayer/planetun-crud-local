@@ -1,0 +1,21 @@
+.no-responsive {
+  display: none;
+  gap: 12px;
+  justify-content: center;
+
+  @media (max-width: 630px) {
+    display: grid;
+  }
+
+  .animation {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  .info {
+    text-align: center;
+    display: grid;
+    gap: 8px;
+    color: var(--secondary-color);
+  }
+}

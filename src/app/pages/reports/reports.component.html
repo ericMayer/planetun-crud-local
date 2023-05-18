@@ -1,0 +1,4 @@
+<app-list-table *ngIf="requestState !== requestStates.Error" textButton="Criar relatório" [data]="reports"
+  [columns]="columns" (create)="goToReportDetails()" (edit)="goToReportDetails($event?.id)"></app-list-table>
+
+<app-request-state [requestState]="requestState"></app-request-state>
