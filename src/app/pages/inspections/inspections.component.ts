@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Inspection } from '@pages/inspection/shared/interfaces/inspection.interface';
-import { InspectionService } from '@pages/inspection/shared/services/inspection.service';
+import { Inspection } from '@pages/inspections/shared/interfaces/inspection.interface';
+import { InspectionsService } from '@pages/inspections/shared/services/inspections.service';
 import { Column } from '@shared/interfaces/column.interface';
 import { RequestState } from '@shared/enums/request-state.enum';
 
 @Component({
-  selector: 'app-inspection',
-  templateUrl: './inspection.component.html',
-  styleUrls: ['./inspection.component.scss']
+  selector: 'app-inspections',
+  templateUrl: './inspections.component.html',
+  styleUrls: ['./inspections.component.scss']
 })
-export class InspectionComponent {
+export class InspectionsComponent {
 
   public inspections: Inspection[];
 
@@ -38,16 +38,17 @@ export class InspectionComponent {
     }
   ];
   public requestState: RequestState = RequestState.Loading;
+  public requestStates: typeof RequestState = RequestState;
 
   constructor(
-    private inspectionService: InspectionService,
+    private inspectionsService: InspectionsService,
     private router: Router
   ) {
     this.getInspections();
   }
 
   private getInspections(): void {
-    this.inspectionService.getInspections()
+    this.inspectionsService.getInspections()
       .subscribe({
         next: (inspections: Inspection[]) => {
           this.inspections = inspections;
@@ -58,7 +59,7 @@ export class InspectionComponent {
   }
 
   public goToInspectionDetails(idInspection?: string): void {
-    const path: string = idInspection ? `/inspecao/editar/${idInspection}` : '/inspecao/criar';
+    const path: string = idInspection ? `/inspecoes/editar/${idInspection}` : '/inspecoes/criar';
     this.router.navigateByUrl(path);
   }
 }

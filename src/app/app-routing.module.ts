@@ -12,12 +12,22 @@ const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
+    canActivate: [canActivate],
     children: [
       {
-        path: 'inspecao',
-        loadChildren: () => import('./pages/inspection/inspection.module').then(module => module.InspectionModule),
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'inspecoes'
+      },
+      {
+        path: 'inspecoes',
+        loadChildren: () => import('./pages/inspections/inspections.module').then(module => module.InspectionsModule),
         data: { pageTitle: 'Inspeções' },
-        canActivate: [canActivate]
+      },
+      {
+        path: 'relatorios',
+        loadChildren: () => import('./pages/reports/reports.module').then(module => module.ReportsModule),
+        data: { pageTitle: 'Relatórios' },
       }
     ]
   },

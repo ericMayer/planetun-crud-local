@@ -54,7 +54,13 @@
       }
 
       &:hover {
-        background-color: var(--hover-color);
+        background-color: rgba(var(--primary-color-rgb), 0.6);
+      }
+
+      ::ng-deep .mdc-list-item__primary-text {
+        display: flex;
+        align-items: center;
+        gap: 16px;
       }
     }
   }

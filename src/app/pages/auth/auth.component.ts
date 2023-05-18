@@ -53,7 +53,7 @@ export class AuthComponent {
     if (this.formUserCredentials?.valid) {
       this.authService.login(this.formUserCredentials.value)
         .subscribe({
-          next: () => this.router.navigateByUrl('inspecao'),
+          next: () => this.router.navigateByUrl('inspecoes'),
           error: () => openSnackBarAlert(this.snackBar, {
             message: 'Verifique seu login e sua senha.'
           })
